@@ -32,11 +32,11 @@ w.on("msg",E=>{
 		if (a[1]===(count+1n).toString()) {
 			count++;
 			writeTextAt("✓",[[64,255,64]],0,-8);
-			writeTextAt(count.toString(),0,0,-6);
+			writeTextCenterAt(count.toString(),0,0,-6);
 		} else {
 			count=0n;
 			writeTextAt("X",[[255,64,64]],0,-8);
-			writeTextAt("Ruined the count!",[[255,128,128]],0,-6);
+			writeTextCenterAt("Ruined the count!",[[255,128,128]],0,-6);
 		}
 		writeTextCenterAt(E.nick,[E.color],0,-7);
 	}
