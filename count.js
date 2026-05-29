@@ -36,7 +36,7 @@ function getWordInfo(x,y,xr=1,yr=1) {
 }
 setInterval(_=>{
 	let a = getWordInfo(-20,-8,40).toLowerCase().trim().split(" ")
-	if (a.endsWith("->")) {
+	if (a.join(" ").endsWith("->")) {
 		writeTextAt(" ".repeat(40),0,-20,-8);
 		writeTextAt(" ".repeat(40),0,-20,-6);
 		if (a[0].replace("->","")===(count+1n).toString()) {
