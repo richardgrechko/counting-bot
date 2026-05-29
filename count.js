@@ -14,6 +14,16 @@ window.writeTextAt = function writeTextAt(text,color,x,y) {
       })(0)
    })(0)
 }
+window.writeTextCenterAt = function writeTextCenterAt(text,color,x,y) {
+   let k=text.split("\n")
+   void (function e(t) {
+      if(t>=k.length) {
+         return
+      }
+      writeTextAt(k[t],color,x-Math.floor(k[t].length/2),y+t)
+		setTimeout(e,33,t+1)
+   })(0)
+}
 w.on("msg",E=>{
 	let a = E.msg.toLowerCase().trim().split(" ")
 	if (a[0]==="!count") {
@@ -28,6 +38,6 @@ w.on("msg",E=>{
 			writeTextAt("X",[[255,64,64]],-20,-7);
 			writeTextAt("Ruined the count!",[[255,128,128]],-20,-6);
 		}
-		writeTextAt(E.nick,E.color,-18,-7);
+		writeTextCenterAt(E.nick,[E.color],2,-7);
 	}
 })
