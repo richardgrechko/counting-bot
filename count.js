@@ -39,7 +39,7 @@ setInterval(_=>{
 	if (a.endsWith("->")) {
 		writeTextAt(" ".repeat(40),0,-20,-8);
 		writeTextAt(" ".repeat(40),0,-20,-6);
-		if (a[0]===(count+1n).toString()) {
+		if (a[0].replace("->","")===(count+1n).toString()) {
 			count++;
 			writeTextAt("✓",[[64,255,64]],0,-7);
 			writeTextCenterAt(count.toString(),0,0,-6);
