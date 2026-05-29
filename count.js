@@ -29,26 +29,24 @@ function getWordInfo(x,y,xr=1,yr=1) {
 	for (let i = 0; i < yr; i++) {
 		word.push("")
 		for (let j = 0; j < xr; j++) {
-			word[i]+=getCharInfoXY(x+j,y+i).char
+			word[i]+=getCharInfoXY(x+j,y+i)?.char??" "
 		}
 	}
 	return word.join("\n")
 }
 setInterval(_=>{
-	let a = getWordInfo(-20,-9,40).toLowerCase().trim().split(" ")
-	if (a.splice(-1)[0]==="->") {
-		writeTextAt(" ".repeat(40),0,-20,-9);
-		writeTextAt(" ".repeat(40),0,-20,-7);
+	let a = getWordInfo(-20,-8,40).toLowerCase().trim().split(" ")
+	if (a.endsWith("->")) {
+		writeTextAt(" ".repeat(40),0,-20,-8);
 		writeTextAt(" ".repeat(40),0,-20,-6);
 		if (a[0]===(count+1n).toString()) {
 			count++;
-			writeTextAt("✓",[[64,255,64]],0,-8);
+			writeTextAt("✓",[[64,255,64]],0,-7);
 			writeTextCenterAt(count.toString(),0,0,-6);
 		} else {
 			count=0n;
-			writeTextAt("X",[[255,64,64]],0,-8);
+			writeTextAt("X",[[255,64,64]],0,-7);
 			writeTextCenterAt("Ruined the count!",[[255,128,128]],0,-6);
 		}
-		writeTextCenterAt(E.nick,[E.color],0,-7);
 	}
 },100)
